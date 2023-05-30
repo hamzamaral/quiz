@@ -1,0 +1,45 @@
+<!--<div class="div-container">-->
+<!--&lt;!&ndash;<button mat-raised-button class="button" (click)="degistirr()"> guncele</button>&ndash;&gt;-->
+<!--&lt;!&ndash;<button mat-raised-button  class="button" (click)="getData()"> getdata </button>&ndash;&gt;-->
+<!--<mat-vertical-stepper class="stepper-container" #stepper >-->
+
+<!--  <mat-step *ngFor="let response of this.ServisService.responseData; let i=index">-->
+<!--    <form >-->
+<!--      <ng-template matStepLabel>soru {{i+1}}</ng-template>-->
+<!--        <mat-card class="example-card" >-->
+<!--            <mat-card-header>-->
+<!--              <mat-card-title> SORU {{i+1}} </mat-card-title>-->
+<!--              <mat-card-title>category </mat-card-title>-->
+<!--              <mat-card-subtitle> {{response.category}}</mat-card-subtitle>-->
+<!--            </mat-card-header>-->
+<!--            <mat-card-content>-->
+<!--              <p> {{response.question}}</p>-->
+<!--            </mat-card-content>-->
+<!--            <mat-card-actions>-->
+<!--              <button mat-button (click)="correct_answer(i,response.incorrect_answers[0],this.choices[0])">{{this.choices[0]}} ) {{response.incorrect_answers[0]}}</button>-->
+<!--            </mat-card-actions>-->
+
+<!--            <mat-card-actions>-->
+<!--              <button mat-button (click)="correct_answer(i,response.correct_answer,this.choices[1])">{{this.choices[1]}} ) {{response.correct_answer}}</button>-->
+<!--            </mat-card-actions>-->
+
+<!--            <mat-card-actions *ngIf="response.incorrect_answers[1]">-->
+<!--              <button mat-button (click)="correct_answer(i,response.incorrect_answers[1],this.choices[2])">{{this.choices[2]}} ) {{response.incorrect_answers[1]}}</button>-->
+<!--            </mat-card-actions>-->
+<!--            <mat-card-actions *ngIf="response.incorrect_answers[2]">-->
+<!--              <button mat-button (click)="correct_answer(i,response.incorrect_answers[2],this.choices[3])">{{this.choices[3]}}  ) {{response.incorrect_answers[2]}}</button>-->
+<!--            </mat-card-actions>-->
+<!--&lt;!&ndash;            <mat-card-footer>&ndash;&gt;-->
+<!--&lt;!&ndash;            </mat-card-footer>&ndash;&gt;-->
+<!--        </mat-card>-->
+<!--      <div>-->
+<!--        <button mat-button matStepperPrevious *ngIf="!(i == 0)">Back</button>-->
+<!--        <button mat-button matStepperNext *ngIf="!(i == (this.ServisService.responseData.length-1))">Next</button>-->
+<!--        <button mat-button  *ngIf="(i == (this.ServisService.responseData.length-1))" (click)="stepper.reset()" >Reset</button>-->
+<!--        <button mat-button   (click)="this.ServisService.toggles()" >finish</button>-->
+<!--      </div>-->
+<!--    </form>-->
+<!--  </mat-step>-->
+<!--</mat-vertical-stepper>-->
+<!--</div>-->
+

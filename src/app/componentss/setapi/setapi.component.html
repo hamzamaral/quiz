@@ -1,0 +1,138 @@
+<!--<mat-card class="card-container" >-->
+<!--<mat-card-content  class="flex-container" >-->
+<!--  &lt;!&ndash;    <p> lutfen soru sayısı  catagorisini ve zorlugunu seciniz</p>&ndash;&gt;-->
+
+<!--  <mat-form-field class="example-form-field">-->
+<!--    <mat-label>name</mat-label>-->
+<!--    <input matInput type="number" [(ngModel)]="isim" >-->
+<!--  </mat-form-field>-->
+
+<!--  <mat-form-field class="example-form-field">-->
+<!--    <mat-label>last name</mat-label>-->
+<!--    <input matInput type="number" [(ngModel)]="soyisim" >-->
+<!--  </mat-form-field>-->
+
+<!--  <mat-form-field class="example-form-field">-->
+<!--    <mat-label>number</mat-label>-->
+<!--    <input matInput type="number" [(ngModel)]="numara" >-->
+<!--  </mat-form-field>-->
+<!--  <button mat-raised-button  class="button">List Questions</button>-->
+
+
+<!--</mat-card-content>-->
+
+
+<!--</mat-card>-->
+<!--    <input matInput  [(ngModel)]="isim" >-->
+<!--    <input matInput  [(ngModel)]="soyisim" >-->
+<!--    <input matInput  [(ngModel)]="numara" >-->
+
+
+<!--<button mat-raised-button (click)="isLinear = !isLinear" id="toggle-linear">-->
+<!--  {{!isLinear ? 'Enable linear mode' : 'Disable linear mode'}}-->
+<!--</button>-->
+<!--<mat-stepper [linear]="isLinear" #stepper>-->
+<!--  <mat-step [stepControl]="firstFormGroup">-->
+<!--    <form [formGroup]="firstFormGroup">-->
+<!--      <ng-template matStepLabel>Fill out your name</ng-template>-->
+<!--      <mat-form-field>-->
+<!--        <mat-label>Name</mat-label>-->
+<!--        <input matInput  [(ngModel)]="isim" placeholder="First name" formControlName="firstCtrl" required >-->
+<!--&lt;!&ndash;        <input matInput placeholder="First name" formControlName="firstCtrl" required>&ndash;&gt;-->
+<!--      </mat-form-field>-->
+<!--      <div>-->
+<!--        <button mat-button matStepperNext>Next</button>-->
+<!--      </div>-->
+<!--    </form>-->
+<!--  </mat-step>-->
+<!--  <mat-step [stepControl]="secondFormGroup" label="Fill out your last name">-->
+<!--    <form [formGroup]="secondFormGroup">-->
+<!--      <mat-form-field>-->
+<!--        <mat-label>last name</mat-label>-->
+<!--        <input matInput [(ngModel)]="soyisim" formControlName="secondCtrl" required>-->
+<!--      </mat-form-field>-->
+<!--      <div>-->
+<!--        <button mat-button matStepperPrevious>Back</button>-->
+<!--        <button mat-button matStepperNext>Next</button>-->
+<!--      </div>-->
+<!--    </form>-->
+<!--  </mat-step>-->
+
+<!--  <mat-step [stepControl]="secondFormGroup" label="Fill out your number">-->
+<!--    <form [formGroup]="secondFormGroup">-->
+<!--      <mat-form-field>-->
+<!--        <mat-label>number</mat-label>-->
+<!--        <input matInput [(ngModel)]="numara" formControlName="secondCtrl"-->
+<!--               required>-->
+<!--      </mat-form-field>-->
+<!--      <div>-->
+<!--        <button mat-button matStepperPrevious>Back</button>-->
+<!--        <button mat-button matStepperNext>Next</button>-->
+<!--      </div>-->
+<!--    </form>-->
+<!--  </mat-step>-->
+
+<!--  <mat-step>-->
+<!--    <ng-template matStepLabel>Done</ng-template>-->
+<!--    <p>You are now done.</p>-->
+<!--    <div>-->
+<!--      <button mat-button matStepperPrevious>Back</button>-->
+<!--      <button mat-button (click)="stepper.reset()">Reset</button>-->
+<!--    </div>-->
+<!--  </mat-step>-->
+<!--</mat-stepper>-->
+
+
+
+  <mat-stepper #stepper>
+<!--    [linear]="isLinear"-->
+    <mat-step >
+
+        <ng-template matStepLabel>Fill out your name</ng-template>
+        <mat-form-field>
+          <mat-label>Name</mat-label>
+          <input matInput  [(ngModel)]="isim" placeholder="First name"  >
+          <!--        <input matInput placeholder="First name" formControlName="firstCtrl" required>-->
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+
+    </mat-step>
+    <mat-step  label="Fill out your last name">
+
+        <mat-form-field>
+          <mat-label>last name</mat-label>
+          <input matInput [(ngModel)]="soyisim"  >
+        </mat-form-field>
+
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+
+    </mat-step>
+
+    <mat-step  label="Fill out your number">
+
+        <mat-form-field>
+          <mat-label>number</mat-label>
+          <input matInput [(ngModel)]="numara" >
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+    </mat-step>
+
+    <mat-step>
+      <ng-template matStepLabel>Done</ng-template>
+      <p>You are now done.</p>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button (click)="stepper.reset()">Reset</button>
+        <button mat-button (click)="call()">Register</button>
+      </div>
+    </mat-step>
+  </mat-stepper>
+<!--</div>-->

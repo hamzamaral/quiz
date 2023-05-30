@@ -1,0 +1,35 @@
+/*.flex-container {*/
+/*  display: flex;*/
+/*  justify-content: center;*/
+/*}*/
+
+/*.card-container {*/
+/*  width: 65%;*/
+/*  margin: 0 auto;*/
+/*}*/
+
+/*.example-form-field {*/
+/*  width: 200px;*/
+
+/*  !*padding-bottom: 0px;*!*/
+/*  margin-left: 20px;*/
+/*}*/
+
+/*.button{*/
+/*  margin-left: 20px;*/
+/*  padding: 28px 30px;*/
+/*  !*padding-bottom: 30px;*!*/
+/*  !*padding-top: 30px;*!*/
+/*  !*padding-left: 30px;*!*/
+/*  !*padding-right: 30px ;*!*/
+/*  !*margin-bottom: 30px;*!*/
+
+/*}*/
+
+.mat-stepper-horizontal {
+  margin-top: 8px;
+}
+
+.mat-mdc-form-field {
+  margin-top: 16px;
+}

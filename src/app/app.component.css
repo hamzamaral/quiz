@@ -1,0 +1,22 @@
+/*.container{*/
+/*  display: flex;*/
+/*  flex-wrap: wrap;*/
+/*  justify-content: center; !* Verileri yatayda ortala *!*/
+/*  align-items: center; !* Verileri dikeyde ortala *!*/
+/*  height: 100vh; !* Sayfanın tamamını kapla *!}*/
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+
+.spacer {
+  margin-top: 60px;
+}
+.matmenu{
+  width: 70%;
+}
+
+.mat-card-api-strapi{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}

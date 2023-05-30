@@ -1,0 +1,65 @@
+
+<!--<mat-toolbar color="primary">-->
+<!--  <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">-->
+<!--    <mat-icon>menu</mat-icon>-->
+<!--  </button>-->
+<!--  <span>My App</span>-->
+<!--  <span class="example-spacer"></span>-->
+<!--  <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon" (click)="this.ServisServices.getData()">-->
+<!--    <mat-icon>favorite</mat-icon>-->
+<!--  </button>-->
+<!--  <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon" (click)="this.ServisServices.toggles()">-->
+<!--    <mat-icon >share</mat-icon>-->
+<!--  </button>-->
+<!--</mat-toolbar>-->
+<!--<div *ngIf="this.ServisServices.toggle"  class="spacer"></div>-->
+
+<!--<app-select-question *ngIf="this.ServisServices.toggle" class="containerselect"></app-select-question>-->
+
+<!--<app-showcomponent  *ngIf="!this.ServisServices.toggle" class="container"></app-showcomponent>-->
+<p>
+  <mat-toolbar >
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span>My App</span>
+    <span class="example-spacer"></span>
+<!--    <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">-->
+<!--&lt;!&ndash;      <mat-icon>favorite</mat-icon>&ndash;&gt;-->
+<!--      -->
+<!--    </button>-->
+    <button mat-raised-button (click)="toggles()">Register</button>
+
+
+<!--    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">-->
+<!--      <mat-icon>share</mat-icon>-->
+<!--    </button>-->
+  </mat-toolbar>
+</p>
+
+
+<!--<mat-expansion-panel (opened)="panelOpenState = true"-->
+<!--                     (closed)="panelOpenState = false">-->
+<!--  <mat-expansion-panel-header>-->
+<!--    <mat-panel-title>-->
+<!--      Self aware panel-->
+<!--    </mat-panel-title>-->
+<!--    <mat-panel-description>-->
+<!--      Currently I am {{panelOpenState ? 'open' : 'closed'}}-->
+<!--    </mat-panel-description>-->
+<!--  </mat-expansion-panel-header>-->
+<!--  <app-setapi></app-setapi>-->
+<!--</mat-expansion-panel>-->
+
+
+<mat-card  *ngIf="toggle" class="mat-card-api-strapi">
+  <mat-card-content>
+    <app-setapi></app-setapi>
+  </mat-card-content>
+</mat-card>
+<app-select-question></app-select-question>
+<app-questions></app-questions>
+
+
+
+

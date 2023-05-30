@@ -1,0 +1,150 @@
+<!--<mat-card class="card-container">-->
+<!--  <mat-card-content>-->
+<!--    <p> lutfen soru sayısı  catagorisini ve zorlugunu seciniz</p>-->
+
+<!--    <div class="example-button-row2"><<<<<<<<<<<<</div>>>>>>>>>>>>>-->
+<!--        <mat-label>amountt</mat-label>-->
+<!--        <input matInput type="number" [(ngModel)]="amount" >-->
+
+
+<!--        <mat-label>category</mat-label>-->
+<!--        <input matInput type="number" [(ngModel)]="category" >-->
+
+<!--        <mat-label>difficulty</mat-label>-->
+<!--        <input matInput type="text" [(ngModel)]="difficulty" >-->
+
+<!--        <mat-select [(value)]="difficulty">-->
+<!--          <mat-option *ngFor="let food of  difficultyy; let i=index " [value]="food" >-->
+<!--            {{food}}-->
+<!--          </mat-option>-->
+<!--        </mat-select>-->
+
+<!--      <mat-label>category</mat-label>-->
+<!--      <button mat-raised-button (click)="get()" >al</button>-->
+<!--      <button mat-raised-button (click)="updateData(amount,category,difficulty)" >amount</button>-->
+
+<!--&lt;!&ndash;      <button mat-raised-button (click)="updateData2(category)" >category</button>&ndash;&gt;-->
+
+
+<!--&lt;!&ndash;      <input matInput type="number" [(ngModel)]="category" (ngModelChange)="updateData(category)">&ndash;&gt;-->
+
+<!--&lt;!&ndash;&lt;!&ndash;    <mat-divider></mat-divider>&#45;&#45;&ndash;&gt;-->
+<!--  </mat-card-content>-->
+
+<!--</mat-card>-->
+<!--select-question-->
+<!--<input matInput [(ngModel)]="amount">
+<input matInput [(ngModel)]="category">
+<input matInput [(ngModel)]="difficulty">
+<input matInput [(ngModel)]="response.category" *ngFor="let response of this.responseData ">-->
+<!---->
+
+
+<!--<mat-card class="card-container" >-->
+
+
+
+<!--    <mat-card-content >-->
+<!--         <p> lutfen soru sayısı  catagorisini ve zorlugunu seciniz</p>-->
+
+<!--         <div class="example-button-row2"><<<<<<<<<<<<</div>>>>>>>>>>>>>&ndash;&gt;-->
+<!--      <mat-form-field class="example-form-field">-->
+<!--        <mat-label>amountt</mat-label>-->
+<!--        <input matInput type="number" [(ngModel)]="amount" >-->
+<!--      </mat-form-field>-->
+
+<!--      <mat-form-field class="example-form-field">-->
+<!--        <mat-label>category</mat-label>-->
+<!--        <input matInput type="number" [(ngModel)]="category" >-->
+<!--      </mat-form-field>-->
+
+<!--      <mat-form-field class="example-form-field" >-->
+<!--        <mat-label>difficulty</mat-label>-->
+<!--        &lt;!&ndash;        <input matInput type="text" [(ngModel)]="difficulty" >&ndash;&gt;-->
+<!--        <mat-select [(value)]="difficulty">-->
+<!--          <mat-option *ngFor="let food of  difficultyy; let i=index " [value]="food" >-->
+<!--            {{food}}-->
+<!--          </mat-option>-->
+<!--        </mat-select>-->
+<!--      </mat-form-field>-->
+
+<!--&lt;!&ndash;    <mat-form-field class="example-form-field" >&ndash;&gt;-->
+<!--&lt;!&ndash;      <button mat-raised-button (click)="get()"  class="button">list questions</button>&ndash;&gt;-->
+<!--&lt;!&ndash;    </mat-form-field>&ndash;&gt;-->
+<!--&lt;!&ndash;  <div class="button-container">&ndash;&gt;-->
+
+<!--        <button mat-raised-button (click)="get()" class="button">List Questions</button>-->
+
+
+
+
+<!--&lt;!&ndash;    <button mat-raised-button (click)="updateData(amount,category,difficulty)" >amount</button>&ndash;&gt;-->
+
+
+<!--    &lt;!&ndash;    <mat-divider></mat-divider>&ndash;&gt;-->
+<!--  </mat-card-content>-->
+
+<!--</mat-card>-->
+
+<!--<mat-divider></mat-divider>-->
+<mat-menu #menu="matMenu" >
+  <button mat-menu-item *ngFor="let responses of this.responseData; let ij=index">{{responses.category}}</button>
+  <button mat-menu-item>Entertainment: Cartoon & Animations</button>
+  <button mat-menu-item>Item 2</button>
+  <button mat-menu-item>Item 2</button>
+  <button mat-menu-item>Item 2</button>
+  <button mat-menu-item>Item 2</button>
+  <button mat-menu-item>Item 2</button>
+  <button mat-menu-item>Item 2</button>
+  <input matInput type="number" [(ngModel)]="category" >
+</mat-menu>
+
+<!--<button mat-button [matMenuTriggerFor]="menu">Menu</button>-->
+<!--<mat-menu #menu="matMenu" >-->
+<!--  <button mat-menu-item *ngFor="let responses of this.responseData; let ij=index">{{responses.category}}</button>-->
+<!--  <button mat-menu-item>Entertainment: Cartoon & Animations</button>-->
+<!--  <button mat-menu-item>Item 2</button>-->
+<!--  <button mat-menu-item>Item 2</button>-->
+<!--  <button mat-menu-item>Item 2</button>-->
+<!--  <button mat-menu-item>Item 2</button>-->
+<!--  <button mat-menu-item>Item 2</button>-->
+<!--  <button mat-menu-item>Item 2</button>-->
+<!--  <input matInput type="number" [(ngModel)]="category" >-->
+
+<!--</mat-menu>-->
+
+<mat-card class="card-container" >
+  <p> lutfen soru sayısı  catagorisini ve zorlugunu seciniz</p>
+
+  <mat-card-content  class="flex-container" >
+<!--    <p> lutfen soru sayısı  catagorisini ve zorlugunu seciniz</p>-->
+
+    <mat-form-field class="example-form-field">
+      <mat-label>amountt</mat-label>
+      <input matInput type="number" [(ngModel)]="amount" >
+    </mat-form-field>
+
+    <mat-form-field class="example-form-field" >
+      <mat-label>category</mat-label>
+<!--      <input matInput [(ngModel)]="category" >-->
+<!--      <mat-label>difficulty</mat-label>-->
+      <mat-select [(value)]="categoriess" (selectionChange)="onCategorySelect($event)">
+        <mat-option *ngFor="let food of  categories; let i=index " [value]="food" style="margin: 5px 0px" >
+          {{food}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="example-form-field" >
+      <mat-label>difficulty</mat-label>
+      <mat-select [(value)]="difficulty">
+        <mat-option *ngFor="let food of  difficultyy; let i=index " [value]="food" >
+          {{food}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <button mat-raised-button (click)="get()" class="button">List Questions</button>
+    <button mat-raised-button *ngIf="toggle" (click)="finishTheExam()" class="button">finish the exam</button>
+  </mat-card-content>
+
+</mat-card>
