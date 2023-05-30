@@ -13,4 +13,5 @@ export class WhereAnswersRecordedService {
     this.AnswersRecorded.push(answer)
     console.log(this.AnswersRecorded)
   }
+  m ={position: "1", name: 'Hydrogen', weight: "1.0079", symbol: 'H'}
 }

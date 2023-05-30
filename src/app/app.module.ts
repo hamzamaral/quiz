@@ -31,6 +31,9 @@ import {AppComponent} from './app.component';
 import {MAT_DIALOG_SCROLL_STRATEGY, MatDialog} from "@angular/material/dialog";
 import {BlockScrollStrategy, Overlay, ScrollDispatcher} from "@angular/cdk/overlay";
 import {SetapiComponent} from "./componentss/setapi/setapi.component";
+import {ResultsComponent} from "./componentss/results/results.component";
+import {MatTableModule} from "@angular/material/table";
+import { DenemeComponent } from './componentss/deneme/deneme.component';
 // import {MatStepperModule} from '@angular/material/stepper';
 
 @NgModule({
@@ -42,6 +45,10 @@ import {SetapiComponent} from "./componentss/setapi/setapi.component";
      QuestionsComponent,
      StudentInformationComponent,
     SetapiComponent,
+    ResultsComponent,
+    DenemeComponent,
+
+
 
   ],
   imports: [
@@ -64,7 +71,8 @@ import {SetapiComponent} from "./componentss/setapi/setapi.component";
     MatToolbarModule,
     MatExpansionModule,
     MatMenuModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]
