@@ -177,11 +177,11 @@ export class QuestionsComponent {
     return options;
   }
 
-  choosing(correct_answer:string,option:string,choice:string,i:number,isimSoyisimNumara:string){
+  choosing(correct_answer:string,option:string,choice:string,i:number,isimSoyisimNumara:string,category:string,type:string,difficulty:string){
     // console.log(isimSoyisimNumara)
     this.isimSoyisimNumara = this.isim+this.soyisim+this.numara
     // let isimSoyisimNumaras = isimSoyisimNumara
-    let answers = {"soru":i+1,"doğru cevap":correct_answer,"benim cevabım":option }
+    let answers = {"Soru":i+1,"dogruCevap":correct_answer,"benimCevabim":option,"category":category,"type":type,"difficulty":difficulty }
     this.httpp.post("https://ng-shopapp-3666b-default-rtdb.firebaseio.com/answers/" +this.isimSoyisimNumara + ".json",answers ).subscribe(data => console.log());
   }
 

@@ -10,6 +10,9 @@ import {ToggleService} from "../service/toggle.service";
   templateUrl: './select-question.component.html',
   styleUrls: ['./select-question.component.css']
 })
+
+
+
 export class SelectQuestionComponent implements selectquestionvariable {
   amount : string = "32";
   category : string = "32";

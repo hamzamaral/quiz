@@ -84,10 +84,10 @@
             </mat-card-content>
 
           <mat-card-actions *ngFor="let option of choosingstring; let j=index">
-            <button mat-button  (click)="choosing(response.correct_answer,responseData2[i][j],choosingstring[j],i,isimSoyisimNumara)" *ngIf="j==0"> {{choosingstring[j]}} ) {{responseData2[i][j]}}</button>
-            <button mat-button  (click)="choosing(response.correct_answer,responseData2[i][j],choosingstring[j],i,isimSoyisimNumara)" *ngIf="j==1"> {{choosingstring[j]}} ) {{responseData2[i][j]}}</button>
-            <button mat-button  (click)="choosing(response.correct_answer,responseData2[i][j],choosingstring[j],i,isimSoyisimNumara)"  *ngIf="j==2  && responseData2[i][j] "> {{choosingstring[j]}} ) {{responseData2[i][j]}}</button>
-            <button mat-button  (click)="choosing(response.correct_answer,responseData2[i][j],choosingstring[j],i,isimSoyisimNumara)"   *ngIf="j==3 && responseData2[i][j]"> {{choosingstring[j]}} ) {{responseData2[i][j]}}</button>
+            <button mat-button  (click)="choosing(response.correct_answer,responseData2[i][j],choosingstring[j],i,isimSoyisimNumara,response.category,response.type,response.difficulty)" *ngIf="j==0"> {{choosingstring[j]}} ) {{responseData2[i][j]}}</button>
+            <button mat-button  (click)="choosing(response.correct_answer,responseData2[i][j],choosingstring[j],i,isimSoyisimNumara,response.category,response.type,response.difficulty)" *ngIf="j==1"> {{choosingstring[j]}} ) {{responseData2[i][j]}}</button>
+            <button mat-button  (click)="choosing(response.correct_answer,responseData2[i][j],choosingstring[j],i,isimSoyisimNumara,response.category,response.type,response.difficulty)"  *ngIf="j==2  && responseData2[i][j] "> {{choosingstring[j]}} ) {{responseData2[i][j]}}</button>
+            <button mat-button  (click)="choosing(response.correct_answer,responseData2[i][j],choosingstring[j],i,isimSoyisimNumara,response.category,response.type,response.difficulty)"   *ngIf="j==3 && responseData2[i][j]"> {{choosingstring[j]}} ) {{responseData2[i][j]}}</button>
           </mat-card-actions>
 
           <mat-card-footer>

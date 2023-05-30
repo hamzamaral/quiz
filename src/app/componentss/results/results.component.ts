@@ -3,6 +3,7 @@ import {HttpClient} from "@angular/common/http";
 import {delay, map, Observable, tap} from "rxjs";
 import {WhereAnswersRecordedService} from "../service/where-answers-recorded.service";
 import {MatTable} from "@angular/material/table";
+import {ApiService} from "../service/api.service";
 export interface PeriodicElement {
   name: string;
   position: string;
@@ -10,15 +11,18 @@ export interface PeriodicElement {
   symbol: string;
 }
 
-// benim cevabım
-//   :
-//   "Scrappy"
-// doğru cevap
-//   :
-//   "Scoobert"
-// soru
-//   :
-//   1
+export interface result {
+  soru: string;
+  isim: string;
+  soyisim: string;
+  numara: string;
+  dogruCevap: string;
+  benimCevabim: string;
+  category: string;
+  difficulty: string;
+  type: string;
+}
+
 
 const ELEMENT_DATA: PeriodicElement[] = [
   {position: "1", name: 'Hydrogen', weight: "1.0079", symbol: 'H'},
@@ -41,9 +45,19 @@ const ELEMENT_DATA: PeriodicElement[] = [
 })
 export class ResultsComponent {
   @ViewChild(MatTable, {static: false}) table: MatTable<any> | undefined;
-
-  private url = "https://ng-shopapp-3666b-default-rtdb.firebaseio.com/answers/%C3%B6merkaya1995";
-  private url2 = "https://ng-shopapp-3666b-default-rtdb.firebaseio.com/products";
+  isim :string = "hamza"
+  soyisim :string = "maral"
+  numara :string="1";
+  isimSoyisimNumara:string= this.isim+this.soyisim+this.numara;
+  resultTable:result[]=[
+    {soru:"1",isim: "hamza",soyisim:"maral",numara:"1",
+      dogruCevap:"true",benimCevabim:"benimCevabım",category:"category",difficulty:"difficulty",type:"type"},
+  ];
+  displayedColumnsresult: string[] = ['soru', 'isim',
+    'soyisim', 'numara','dogruCevap', 'benimCevabim',"category",
+    "difficulty","type" ];
+   url = "https://ng-shopapp-3666b-default-rtdb.firebaseio.com/answers/" + this.isimSoyisimNumara;
+   url2 = "https://ng-shopapp-3666b-default-rtdb.firebaseio.com/products";
    ELEMENT_DATA2: PeriodicElement[]  = [
      {position: "1", name: 'Hydrogen', weight: "1.0079", symbol: 'H'},
      {position: "2", name: 'Helium', weight: "4.0026", symbol: 'He'},
@@ -64,99 +78,110 @@ export class ResultsComponent {
   products1key: any[] = [];
   products2: any[] = [];
   products2key: any[] = [];
+   b: any;
+   anahtar: any;
 
-  constructor(private http: HttpClient,protected mn:WhereAnswersRecordedService,private changeDetectorRef: ChangeDetectorRef) {
+
+  constructor(private http: HttpClient,protected mn:WhereAnswersRecordedService,private changeDetectorRef: ChangeDetectorRef,private setapi:ApiService) {
     // this.resultss()
   }
+
+  ngOnInit(){
+    this.setapi.isim.subscribe((newData) => {
+      this.isim = newData;
+    });
+    this.setapi.soyisim.subscribe((newData) => {
+      this.soyisim = newData;
+    });
+    this.setapi.numara.subscribe((newData) => {
+      this.numara = newData;
+    });
+
+  }
+
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
+
   mlk= this.mn.m
   dataSource= this.ELEMENT_DATA3;
 
   getresult(){
+    this.isimSoyisimNumara= this.isim+this.soyisim+this.numara;
+    this.url = "https://ng-shopapp-3666b-default-rtdb.firebaseio.com/answers/" + this.isimSoyisimNumara;
     return this.http
       .get(this.url + ".json")
       .pipe(
         map(data => {
           const products:any[] = [];
-          const productsnew: any[] = [];
-           // const productskey: { [key: string]: { [key: string]: string | number } }  = [];
+          // const productsnew: any[] = [];
           products.push(data)
           this.products1.push(data)
-          console.log(data)
           // console.log(data)
 
           for(const key in data) {
-            productsnew.push({ ...data, id: key });
+            // productsnew.push({ ...data, id: key });
             this.products1key.push(key)
-            // return productskey
-            // console.log(this.products1key)
-            // if(categoryId) {
-            //   if(categoryId == data[key].categoryId) {
-            //     products.push({ ...data[key], id: key });
-            //   }
-            // }
-            // else {
-            //   products.push({ ...data[key], id: key });
-            // }
+
 
           }
-          // const anahtar = "-NWbE8j-UbLDF8Hn7eor"; // Görüntülemek istediğiniz anahtar
-          //
-          // console.log(this.products1[0][anahtar].soru)
-          // console.log(this.products1key)
 
-
-          // let a= productskey[0]
-          // const soru = data[a].soru;
-
-          // console.log(data)
 
 
           return products;
         }),
         tap(data => console.log()),
-        delay(1000)//1 dakika geciktir demek
+        // delay(1000)//1 dakika geciktir demek
       );
   }
 
   resultss(){
+    this.isimSoyisimNumara= this.isim+this.soyisim+this.numara;
+    this.url = "https://ng-shopapp-3666b-default-rtdb.firebaseio.com/answers/" + this.isimSoyisimNumara;
+    // let b:any[]
     this.getresult().subscribe(data => {
-      // this.products1 = data;
-      // console.log(this.products1[0])
-      // this.loading = false;
-      // let m ={position: "1", name: 'Hydrogen', weight: "1.0079", symbol: 'H'}
-      //   this.ELEMENT_DATA2.push(m)
-      // this.dataSource=this.ELEMENT_DATA2
-      // console.log(this.dataSource)
-
 
       for (let i = 0; i < this.products1key.length; i++) {
-        let anahtar:string = this.products1key[i]
-        let b =this.products1[0][anahtar].soru
-        console.log(b)
-        for (let j = 0; j < this.products1key.length; j++) {}
-        // let m ={position: "1", name: 'Hydrogen', weight: "1.0079", symbol: 'H'}
-        // this.ELEMENT_DATA2.push(m)
+        this.anahtar= this.products1key[i]
+        this.b=this.products1[0][this.anahtar]
+        console.log(this.b)
+        console.log(this.anahtar)
+        console.log(this.b["Soru"])
+        console.log(this.b["dogruCevap"])
+        console.log(this.b["benimCevabim"])
+        console.log(this.b["category"])
+        console.log(this.b["type"])
+        console.log(this.b["difficulty"])
+
+        // console.log()
+        // b[i].Soru
+        // // b[i].isim
+        // // b[i].soyisim
+        // // b[i].numara
+        // b[i].dogruCevap
+        // b[i].benimCevabım
+        // b[i].category
+        // b[i].difficulty
+        // b[i].type
+        // let resulrdemeyanılma =[
+        //   {soru:b[i].soru,isim:this.isim,soyisim:this.soyisim,numara:this.numara,
+        //     dogruCevap:b[i].dogruCevap,benimCevabim:b[i].benimCevabim,
+        //     category:b[i].category,difficulty:b[i].difficulty,type:b[i].type},
+        // ]
+        // console.log(resulrdemeyanılma)
+
+
+
         this.dataSource=this.ELEMENT_DATA2
-        console.log(this.dataSource)
-        // this.ELEMENT_DATA2.push(m)
-        this.ELEMENT_DATA2.push({position:i.toString(),name:anahtar,weight:this.products1[0][anahtar].soru,symbol:this.products1[0][anahtar]["benim cevabım"]})
+        // this.resultTable=
+
+        this.ELEMENT_DATA2.push({position:i.toString(),name:this.anahtar,weight:this.products1[0][this.anahtar].soru,symbol:this.products1[0][this.anahtar]["benim cevabım"]})
         this.dataSource=this.ELEMENT_DATA2
         this.changeDetectorRef.detectChanges()
         this.table.renderRows(); // Tabloyu yeniden render et
 
-        console.log(this.dataSource)
-        //
-        // this.ELEMENT_DATA3=this.ELEMENT_DATA2
-        // console.log(this.products1key[i]);
       }
-      // this.dataSource=this.ELEMENT_DATA2
-      // console.log(this.dataSource)
+      console.log(this.b)
+      console.log(this.anahtar)
 
-
-      // for (const key in this.products1key) {
-      //   console.log(key)
-      //
       // }
       ////////////////////// let anahtar = "-NWbE8j-UbLDF8Hn7eor"; // Görüntülemek istediğiniz anahtar
      ////////////////////////// console.log(this.products1[0][anahtar])

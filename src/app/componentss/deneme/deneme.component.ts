@@ -17,6 +17,7 @@ export interface PeriodicElement {
 })
 export class DenemeComponent {
 
+
   // @ViewChild(MatTable) table: MatTable<any> | undefined;
   @ViewChild(MatTable, {static: false}) table: MatTable<any> | undefined;
 
